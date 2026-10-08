@@ -81,7 +81,7 @@ async function refreshMint(w, provider) {
     $("mintPrice").textContent = `${nf(ethers.formatUnits(q[1], 18), 0)} REP = ${ethers.formatUnits(q[0], dec)} ${sym}`;
     if (w) {
       const bal = await imd.balanceOf(w.address);
-      $("imdBal").textContent = `Saldo ${sym}: ${nf(ethers.formatUnits(bal, dec))}`;
+      $("imdBal").textContent = `Balance ${sym}: ${nf(ethers.formatUnits(bal, dec))}`;
     }
     await updateQuote();
   } catch (e) {
