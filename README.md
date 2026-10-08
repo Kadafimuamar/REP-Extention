@@ -61,7 +61,7 @@ You should now have a folder that contains an `extension/` directory. The file `
 
 1. Open any profile on `https://x.com/<username>`.
 2. The **Reputation** card appears below the follower counts.
-3. Click **Give REP** (**Beri REP** if X is set to Indonesian), choose an amount and a category, then confirm.
+3. Click **Give REP**, choose an amount and a category, then confirm.
 4. After the transaction is confirmed, the card shows the updated score and number of givers.
 
 ---
