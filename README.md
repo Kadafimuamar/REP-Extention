@@ -1,6 +1,6 @@
-# Installing Reputation Ticker ($REP)
+# Installing Reputation ($REP)
 
-Reputation Ticker is a Chrome extension (Manifest V3) that adds an on-chain reputation card to X (Twitter) profiles. You can mint REP with IMD from the extension popup and give REP to any X account.
+Reputation is a Chrome extension (Manifest V3) that adds an on-chain reputation card to X (Twitter) profiles. You can mint REP with IMD from the extension popup and give REP to any X account.
 
 It works in Chromium-based browsers: **Google Chrome, Microsoft Edge, Brave, Opera, Arc**. Firefox and Safari are not supported.
 
