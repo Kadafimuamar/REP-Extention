@@ -12,7 +12,7 @@ It works in Chromium-based browsers: **Google Chrome, Microsoft Edge, Brave, Ope
 
 **Option A: download a ZIP (no Git needed)**
 
-1. Open the repository on GitHub: `[https://github.com/<your-username>/<your-repo>](https://github.com/Kadafimuamar/REP-Extention)`
+1. Open the repository on GitHub: `https://github.com/Kadafimuamar/REP-Extention`
 2. Click the green **Code** button, then **Download ZIP**.
 3. Unzip it anywhere you will keep it (do not delete the folder afterwards, Chrome loads the extension from it).
 
