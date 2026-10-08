@@ -103,7 +103,7 @@ async function updateQuote() {
     const rep = new ethers.Contract(REP_CONFIG.repToken, tokenAbi, mkProvider());
     const imd = new ethers.Contract(REP_CONFIG.imdToken, erc20Abi, mkProvider());
     const [q, dec, sym] = await Promise.all([rep.quote(lots), imd.decimals(), imd.symbol()]);
-    $("mintQuote").textContent = `Bayar ${ethers.formatUnits(q[0], dec)} ${sym} \u2192 ${nf(ethers.formatUnits(q[1], 18), 0)} REP`;
+    $("mintQuote").textContent = `Pay ${ethers.formatUnits(q[0], dec)} ${sym} \u2192 ${nf(ethers.formatUnits(q[1], 18), 0)} REP`;
   } catch (e) {
     $("mintQuote").textContent = "\u00a0";
   }
