@@ -1,0 +1,141 @@
+/* ===== Reputation Ticker — gaya mengikuti tema X (Default / Dim / Lights out) ===== */
+.rep-card, .rep-overlay {
+  --rep-font: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --rep-bg: #000;
+  --rep-surface: #16181c;
+  --rep-fg: #e7e9ea;
+  --rep-sub: #71767b;
+  --rep-border: #2f3336;
+  --rep-hover: rgba(231, 233, 234, .1);
+  --rep-btn-bg: #eff3f4;
+  --rep-btn-fg: #0f1419;
+  --rep-scrim: rgba(91, 112, 131, .4);
+  --rep-accent: #1d9bf0;
+  font-family: var(--rep-font);
+  color: var(--rep-fg);
+  box-sizing: border-box;
+}
+[data-rep-theme="dim"] {
+  --rep-bg: #15202b;
+  --rep-surface: #1e2732;
+  --rep-fg: #f7f9f9;
+  --rep-sub: #8b98a5;
+  --rep-border: #38444d;
+  --rep-hover: rgba(247, 249, 249, .1);
+}
+[data-rep-theme="light"] {
+  --rep-bg: #fff;
+  --rep-surface: #f7f9f9;
+  --rep-fg: #0f1419;
+  --rep-sub: #536471;
+  --rep-border: #eff3f4;
+  --rep-hover: rgba(15, 20, 25, .1);
+  --rep-btn-bg: #0f1419;
+  --rep-btn-fg: #fff;
+  --rep-scrim: rgba(0, 0, 0, .4);
+}
+.rep-card *, .rep-overlay * { box-sizing: border-box; font-family: var(--rep-font); }
+
+/* ---------- Kartu di profil ---------- */
+.rep-card {
+  display: flex; align-items: center; gap: 12px;
+  margin: 12px 0; padding: 12px 16px;
+  background: var(--rep-surface);
+  border: 1px solid var(--rep-border);
+  border-radius: 16px;
+}
+.rep-card.rep-floating {
+  position: fixed; right: 16px; bottom: 16px; z-index: 2147482000;
+  width: 340px; max-width: calc(100vw - 32px); margin: 0;
+  box-shadow: 0 0 15px rgba(101,119,134,.25), 0 0 3px 1px rgba(101,119,134,.15);
+}
+.rep-badge {
+  flex: none; width: 44px; height: 44px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--rep-accent); color: #fff;
+}
+.rep-main { flex: 1; min-width: 0; }
+.rep-label { display: flex; align-items: center; gap: 6px; font-size: 13px; line-height: 16px; color: var(--rep-sub); }
+.rep-title { font-weight: 700; color: var(--rep-fg); }
+.rep-net {
+  font-size: 11px; line-height: 14px; padding: 1px 7px; border-radius: 9999px;
+  border: 1px solid var(--rep-border); color: var(--rep-sub);
+}
+.rep-score { display: flex; align-items: baseline; gap: 5px; font-size: 22px; line-height: 28px; font-weight: 800; color: var(--rep-fg); }
+.rep-score small { font-size: 13px; font-weight: 500; color: var(--rep-sub); }
+.rep-sub { font-size: 13px; line-height: 16px; color: var(--rep-sub); }
+.rep-skel {
+  display: inline-block; width: 72px; height: 20px; border-radius: 6px; vertical-align: middle;
+  background: var(--rep-border); animation: rep-pulse 1.2s ease-in-out infinite;
+}
+@keyframes rep-pulse { 0%,100% { opacity: .5 } 50% { opacity: 1 } }
+.rep-link {
+  all: unset; cursor: pointer; color: var(--rep-accent); font-size: 13px;
+}
+.rep-link:hover { text-decoration: underline; }
+
+/* Tombol pil ala X */
+.rep-btn {
+  flex: none; height: 36px; padding: 0 16px; border: 0; border-radius: 9999px;
+  background: var(--rep-btn-bg); color: var(--rep-btn-fg);
+  font: 700 14px/20px var(--rep-font); cursor: pointer; white-space: nowrap;
+  transition: opacity .15s;
+}
+.rep-btn:hover { opacity: .88; }
+.rep-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ---------- Dialog ---------- */
+.rep-overlay {
+  position: fixed; inset: 0; z-index: 2147483000;
+  display: flex; align-items: center; justify-content: center; padding: 16px;
+  background: var(--rep-scrim);
+}
+.rep-dialog {
+  width: 100%; max-width: 400px; max-height: calc(100vh - 32px); overflow: auto;
+  background: var(--rep-bg); color: var(--rep-fg); border-radius: 16px; padding-bottom: 24px;
+  box-shadow: 0 0 15px rgba(101,119,134,.2), 0 0 3px 1px rgba(101,119,134,.15);
+}
+.rep-dh { display: flex; align-items: center; gap: 20px; height: 53px; padding: 0 16px; }
+.rep-x {
+  all: unset; width: 34px; height: 34px; border-radius: 9999px; display: grid; place-items: center;
+  cursor: pointer; color: var(--rep-fg);
+}
+.rep-x:hover { background: var(--rep-hover); }
+.rep-dtitle { font-size: 20px; line-height: 24px; font-weight: 800; }
+.rep-dbody { padding: 4px 24px 0; }
+.rep-target { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.rep-ava {
+  width: 40px; height: 40px; border-radius: 9999px; overflow: hidden; flex: none;
+  display: grid; place-items: center; background: var(--rep-accent); color: #fff;
+}
+.rep-ava img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rep-tname { font-size: 15px; line-height: 20px; font-weight: 700; }
+.rep-tsub { font-size: 13px; line-height: 16px; color: var(--rep-sub); }
+.rep-field-label { display: block; margin: 0 0 8px; font-size: 13px; line-height: 16px; color: var(--rep-sub); }
+.rep-amtwrap {
+  display: flex; align-items: center; gap: 8px; padding: 0 12px; height: 56px;
+  border: 1px solid var(--rep-border); border-radius: 4px; background: transparent;
+}
+.rep-amtwrap:focus-within { border-color: var(--rep-accent); box-shadow: 0 0 0 1px var(--rep-accent); }
+.rep-amt {
+  all: unset; flex: 1; min-width: 0; font-size: 20px; line-height: 24px; font-weight: 700; color: var(--rep-fg);
+}
+.rep-amt::-webkit-outer-spin-button, .rep-amt::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.rep-unit { font-size: 15px; font-weight: 700; color: var(--rep-sub); }
+.rep-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
+.rep-chip {
+  all: unset; box-sizing: border-box; height: 32px; padding: 0 14px; border-radius: 9999px;
+  display: inline-flex; align-items: center; cursor: pointer;
+  border: 1px solid var(--rep-border); color: var(--rep-fg);
+  font: 700 13px/1 var(--rep-font);
+}
+.rep-chip:hover { background: var(--rep-hover); }
+.rep-chip.rep-on { background: var(--rep-fg); color: var(--rep-bg); border-color: var(--rep-fg); }
+.rep-info { min-height: 16px; margin-bottom: 16px; font-size: 13px; line-height: 16px; color: var(--rep-sub); }
+.rep-dialog .rep-btn { width: 100%; height: 44px; font-size: 15px; }
+.rep-msg { min-height: 16px; margin-top: 12px; font-size: 13px; line-height: 18px; color: var(--rep-sub); word-break: break-word; }
+.rep-warn { color: #ffd400; }
+.rep-err { color: #f4212e; }
+.rep-ok { color: #00ba7c; }
+.rep-msg a { color: var(--rep-accent); text-decoration: none; }
+.rep-msg a:hover { text-decoration: underline; }

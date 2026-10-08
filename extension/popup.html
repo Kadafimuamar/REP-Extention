@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>REP Wallet</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><img src="icons/icon48.png" alt="">REP <span>Reputation IMD</span></div>
+  <div id="status">Loading...</div>
+
+  <div class="card">
+    <div class="label">Wallet</div>
+    <div id="address" class="mono">Not Created</div>
+    <button id="create">Create new wallet</button>
+    <button id="copy" class="secondary">Copy address</button>
+  </div>
+
+  <div class="card">
+    <div class="label">Balance</div>
+    <div id="balance">&mdash;</div>
+    <div id="eth" class="muted">&mdash;</div>
+    <button id="refresh">Refresh</button>
+  </div>
+
+  <div class="card">
+    <div class="label">Mint REP</div>
+    <div id="mintPrice" class="strong">&mdash;</div>
+    <div id="imdBal" class="muted">&mdash;</div>
+    <div class="chips">
+      <button type="button" class="chip" data-lots="1">1</button>
+      <button type="button" class="chip" data-lots="5">5</button>
+      <button type="button" class="chip" data-lots="10">10</button>
+      <button type="button" class="chip" data-lots="50">50</button>
+    </div>
+    <input id="lots" type="number" min="1" step="1" value="1" placeholder="Number of lots">
+    <div id="mintQuote" class="muted">&nbsp;</div>
+    <button id="mint">Mint REP</button>
+    <div id="mintMsg" class="muted"></div>
+    <div class="muted small">Every 1 IMD collected: 50% is burned, 50% goes to the deployer.</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Backup / Restore</div>
+    <button id="export" class="secondary">Display private key</button>
+    <div id="keybox" class="mono keybox" hidden></div>
+    <input id="importKey" type="password" placeholder="Paste private key (0x...)">
+    <button id="import" class="secondary">Import wallet</button>
+    <div class="muted">Private key is stored unencrypted in the browser. Use a dedicated wallet with minimal funds.</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Network</div>
+    <div id="netName">&mdash;</div>
+    <div id="netChain" class="muted">&mdash;</div>
+  </div>
+</div>
+<script src="ethers.min.js"></script>
+<script src="config.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

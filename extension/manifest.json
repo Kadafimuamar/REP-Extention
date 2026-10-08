@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Reputation Ticker — $REP",
+  "version": "0.4.0",
+  "description": "On-chain reputation for X accounts using $REP.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "https://ethereum-sepolia-rpc.publicnode.com/*",
+    "https://ethereum-rpc.publicnode.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Reputation Ticker",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+      ],
+      "js": [
+        "ethers.min.js",
+        "config.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
